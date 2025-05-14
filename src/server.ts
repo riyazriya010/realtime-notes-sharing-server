@@ -5,6 +5,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
+import { userRoutes } from './routes/user.routes';
 
 
 const app = express()
@@ -21,14 +22,16 @@ const corsOptions = {
     optionsSuccessStatus: 200 // 204 the older bowser or smart tv can't interupt with 204
 }
 
-app.use(cors(corsOptions))
-app.use(morgan('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(cookieParser())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(cors(corsOptions));
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+
+app.use('/api/user',userRoutes);
 
 app.listen(PORT, (error?: Error) => {
     if(error) throw error

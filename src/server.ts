@@ -27,7 +27,8 @@ connectDB()
 const PORT = SERVER_PORT
 
 const corsOptions = {
-  origin: "https://realtime-notes-sharing-client.vercel.app",
+  // origin: "https://realtime-notes-sharing-client.vercel.app",
+  origin: "http://localhost:3000",
   methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],
   credentials: true,
   preflightContinue: false,

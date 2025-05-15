@@ -26,7 +26,8 @@ const io = new socket_io_1.Server(server, {
 (0, dbConfig_1.connectDB)();
 const PORT = constant_1.SERVER_PORT;
 const corsOptions = {
-    origin: "https://realtime-notes-sharing-client.vercel.app",
+    // origin: "https://realtime-notes-sharing-client.vercel.app",
+    origin: "http://localhost:3000",
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     credentials: true,
     preflightContinue: false,

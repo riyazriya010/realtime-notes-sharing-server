@@ -15,9 +15,8 @@ const app = express()
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    // origin: `${CORS_ORIGIN}`,
-    origin: "https://realtime-notes-sharing-client.vercel.app/",
-    methods: ["GET", "POST", 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+    origin: "https://realtime-notes-sharing-client.vercel.app",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
     allowedHeaders: ['Content-Type', 'Authorization', 'Role'],
     credentials: true
   }
@@ -28,13 +27,12 @@ connectDB()
 const PORT = SERVER_PORT
 
 const corsOptions = {
-    // origin: String(CORS_ORIGIN),
-    origin: "https://realtime-notes-sharing-client.vercel.app/",
-    methods: CORS_METHODS,
-    credentials: Boolean(CORS_CREDENTIALS),
-    preflightContinue: false,
-    optionsSuccessStatus: 200 // 204 the older bowser or smart tv can't interupt with 204
-}
+  origin: "https://realtime-notes-sharing-client.vercel.app",
+  methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 200
+};
 
 app.use(cors(corsOptions));
 app.use(morgan('dev'));

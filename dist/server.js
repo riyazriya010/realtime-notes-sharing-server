@@ -17,9 +17,8 @@ const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        // origin: `${CORS_ORIGIN}`,
-        origin: "https://realtime-notes-sharing-client.vercel.app/",
-        methods: ["GET", "POST", 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+        origin: "https://realtime-notes-sharing-client.vercel.app",
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
         allowedHeaders: ['Content-Type', 'Authorization', 'Role'],
         credentials: true
     }
@@ -27,12 +26,11 @@ const io = new socket_io_1.Server(server, {
 (0, dbConfig_1.connectDB)();
 const PORT = constant_1.SERVER_PORT;
 const corsOptions = {
-    // origin: String(CORS_ORIGIN),
-    origin: "https://realtime-notes-sharing-client.vercel.app/",
-    methods: constant_1.CORS_METHODS,
-    credentials: Boolean(constant_1.CORS_CREDENTIALS),
+    origin: "https://realtime-notes-sharing-client.vercel.app",
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    credentials: true,
     preflightContinue: false,
-    optionsSuccessStatus: 200 // 204 the older bowser or smart tv can't interupt with 204
+    optionsSuccessStatus: 200
 };
 app.use((0, cors_1.default)(corsOptions));
 app.use((0, morgan_1.default)('dev'));

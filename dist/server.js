@@ -17,8 +17,8 @@ const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: `${constant_1.CORS_ORIGIN}`,
-        // origin: "https://www.learngrow.live",
+        // origin: `${CORS_ORIGIN}`,
+        origin: "https://realtime-notes-sharing-client.vercel.app/",
         methods: ["GET", "POST", 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
         allowedHeaders: ['Content-Type', 'Authorization', 'Role'],
         credentials: true
@@ -27,7 +27,8 @@ const io = new socket_io_1.Server(server, {
 (0, dbConfig_1.connectDB)();
 const PORT = constant_1.SERVER_PORT;
 const corsOptions = {
-    origin: String(constant_1.CORS_ORIGIN),
+    // origin: String(CORS_ORIGIN),
+    origin: "https://realtime-notes-sharing-client.vercel.app/",
     methods: constant_1.CORS_METHODS,
     credentials: Boolean(constant_1.CORS_CREDENTIALS),
     preflightContinue: false,

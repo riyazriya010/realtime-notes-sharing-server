@@ -15,11 +15,13 @@ export const sendAuthResponse = (
       httpOnly: false,
       secure: true,
       sameSite: "none",
+      domain:'realtime-notes-sharing-client.vercel.app'
     })
     .cookie('refreshToken', refreshToken, {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      domain: 'realtime-notes-sharing-client.vercel.app'
     })
     .json({
       success: true,

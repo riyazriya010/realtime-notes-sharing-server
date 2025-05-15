@@ -67,6 +67,29 @@ class UserAuthController {
             }
         });
     }
+    logout(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return res
+                    .status(200)
+                    .clearCookie("accessToken", {
+                    httpOnly: false,
+                    secure: true,
+                    sameSite: "none",
+                })
+                    .clearCookie("refreshToken", {
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: "none",
+                })
+                    .send({ success: true, message: "User Logged out successfully" });
+            }
+            catch (error) {
+                (0, responseHelpers_1.sendErrorResponse)(res, httpStatusCodes_1.HttptatusCode.INTERNAL_SERVER_ERROR, "Internal Server Error");
+                return;
+            }
+        });
+    }
 }
 exports.default = UserAuthController;
 exports.userAuthController = new UserAuthController(auth_services_1.userAuthServices);

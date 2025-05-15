@@ -74,5 +74,27 @@ export default class UserAuthController {
             return;
         }
     }
+
+
+    async logout(req: Request, res: Response): Promise<any> {
+        try {
+            return res
+                .status(200)
+                .clearCookie("accessToken", {
+                    httpOnly: false,
+                    secure: true,
+                    sameSite: "none",
+                })
+                .clearCookie("refreshToken", {
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: "none",
+                })
+                .send({ success: true, message: "User Logged out successfully" });
+        } catch (error: unknown) {
+            sendErrorResponse(res, HttptatusCode.INTERNAL_SERVER_ERROR, "Internal Server Error")
+            return;
+        }
+    }
 }
 export const userAuthController = new UserAuthController(userAuthServices);

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon --watch src --exec ts --ignore build --exec ts-node src/server.ts",
     "build": "tsc",
-    "start": "node build/server.js",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

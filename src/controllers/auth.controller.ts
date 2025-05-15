@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import UserAuthServices, { userAuthServices } from "../services/auth.services";
-import { sendAuthResponse, sendDataResponse, sendErrorResponse } from "../utils/responseHelpers";
+import { sendAuthResponse, sendErrorResponse } from "../utils/responseHelpers";
 import { HttptatusCode } from "../utils/httpStatusCodes";
 import { JwtService } from "../integration/jwt";
 

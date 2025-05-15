@@ -17,6 +17,7 @@ export class JwtService {
                 error.name = 'JwtAccessTokenError'
                 throw error
             }
+            throw error
         }
     }
 
@@ -35,6 +36,7 @@ export class JwtService {
                 error.name = 'JwtRefreshTokenError'
                 throw error
             }
+            throw error
         }
     }
 }
